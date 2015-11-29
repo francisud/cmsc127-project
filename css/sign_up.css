@@ -1,0 +1,23 @@
+body{
+	background-image: url("../res/music3.JPG");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#login-container{
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 20px;
+}
+
+#log{
+	margin-top: 30vh;
+}
+
+#log2{
+	margin-top: 25vh;
+}
+
+#heading{
+	color: black;
+}

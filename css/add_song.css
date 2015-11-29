@@ -1,0 +1,26 @@
+body{
+	background-image: url("../res/music3.JPG");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#login-container{
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 20px;
+	position: absolute;
+	
+	left: 35%;
+}
+
+#log{
+	margin-top: 15vh;
+	position: relative;
+	
+}
+
+#heading{
+	color: black;
+}
+
+

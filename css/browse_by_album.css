@@ -1,0 +1,10 @@
+body {
+	width: 100%;
+	font-family: verdana;
+	color: white;
+	background-color: rgb(24,24,24);
+  }
+
+tbody tr:hover{
+	background-color: rgb(51,51,51);
+}
