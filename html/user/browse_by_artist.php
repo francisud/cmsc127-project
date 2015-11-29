@@ -28,11 +28,11 @@
 	
 	else{
 		$sql = " SELECT stage_name, artist_name from artist 
-				WHERE artist_name = $1
+				WHERE artist_name like $1
 				";
 		
 		$result = pg_prepare($db, 'get_artist', $sql);
-		$result = pg_execute($db, 'get_artist', array($artist_name));
+		$result = pg_execute($db, 'get_artist', array('%'.$artist_name.'%'));
 	   
 	   if(!$result){
 		  echo pg_last_error($db);

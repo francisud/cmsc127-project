@@ -26,10 +26,10 @@
    else{
 	   
 	   $sql = " SELECT * FROM album 
-				where album_name = $1
+				where album_name like $1
 				";
 	   $result = pg_prepare($db, 'get_album', $sql);
-	   $result = pg_execute($db, 'get_album', array($album_name));
+	   $result = pg_execute($db, 'get_album', array('%'.$album_name.'%'));
 	   
 	    if(!$result){
 		  echo pg_last_error($db);

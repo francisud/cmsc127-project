@@ -29,12 +29,12 @@
    
    else{
 		$sql = " SELECT * FROM song
-					where song_title = $1
+					where song_title like $1
 					ORDER BY song_title
 					";		
 		
 		$result = pg_prepare($db, 'get_song', $sql);
-		$result = pg_execute($db, 'get_song', array($song_title));
+		$result = pg_execute($db, 'get_song', array('%'.$song_title.'%'));
 	   
 	   if(!$result){
 		  echo pg_last_error($db);
