@@ -36,7 +36,7 @@
 		  exit;
 		}
 		
-		$sql = " SELECT * FROM song where artist like '%$artist_name%	' ";
+		$sql = " SELECT * FROM song where artist like '%$artist_name%' ";
 		
 		$ret = pg_query($db, $sql);
 		

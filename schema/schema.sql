@@ -2,7 +2,7 @@ create table users(
 username varchar(50) primary key,
 password varchar(50),
 user_name varchar(50),
-user_email varchar(50),
+user_email varchar(50) unique,
 date_joined timestamp default current_timestamp,
 is_admin boolean default false,
 is_pending boolean default true,
@@ -31,7 +31,7 @@ playlist_id serial primary key,
 playlist_name varchar(50),
 number_of_songs int default 0,
 number_of_times_played bigint default 0,
-username varchar(50) references users(username)
+username varchar(50) references users(username) not null
 );
 
 

@@ -14,12 +14,15 @@
 		echo "Error : Unable to open database\n";
 	}
 	
-	$sql = " INSERT INTO users (user_email, user_name, username, password) values ('$email', '$name','$username', '$password') ";
-	$ret = pg_query($db, $sql);
+	$sql = " INSERT INTO users (user_email, user_name, username, password) values ($1, $2, $3, $4) ";
+	
+	
+	$result = pg_prepare($db, 'new_user', $sql);
+	$result = pg_execute($db, 'new_user', array($email, $name, $username, $password));
 
-	if(!$ret){
+	if(!$result){
 		echo '<script type="text/javascript">'; 
-		echo 'alert("Username is Already Used");'; 
+		echo 'alert("Failed To Sign Up");'; 
 		echo 'window.location.href = "sign_up.php";';
 		echo '</script>';
 	} else {		

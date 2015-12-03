@@ -14,7 +14,7 @@
    $song_title = '%'.$song_title.'%';
 	$sql = " SELECT * FROM song
 				where song_title like $1
-				ORDER BY song_title
+				ORDER BY artist
 				";
 	$result = pg_prepare($db, 'get_songs', $sql);
 	$result = pg_execute($db, 'get_songs', array($song_title));

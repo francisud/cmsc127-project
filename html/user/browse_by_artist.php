@@ -16,7 +16,7 @@
    
    if($_GET['artist_name'] == null)
 	{
-		$sql = " SELECT stage_name, artist_name from artist ";
+		$sql = " SELECT stage_name, artist_name from artist ORDER BY stage_name ";
 		$result = pg_query($db, $sql);
 	   
 	   if(!$result){
@@ -29,6 +29,7 @@
 	else{
 		$sql = " SELECT stage_name, artist_name from artist 
 				WHERE artist_name like $1
+				ORDER BY stage_name
 				";
 		
 		$result = pg_prepare($db, 'get_artist', $sql);

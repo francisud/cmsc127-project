@@ -10,16 +10,18 @@
 
    $db = pg_connect( "$host $port $dbname $credentials");
    
-	$sql = " SELECT * FROM users where username='$username' and password='$password' ";
-	$ret = pg_query($db, $sql);
+	$sql = " SELECT * FROM users where username=$1 and password=$2 ";
 	
-	if(!$ret){
+	$result = pg_prepare($db, 'sign_in', $sql);
+	$result = pg_execute($db, 'sign_in', array($username, $password));	
+	
+	if(!$result){
 	  echo pg_last_error($db);
 	  exit;
 	}
 	
 	else{
-		while($row = pg_fetch_row($ret)) {
+		while($row = pg_fetch_row($result)) {
 		if($username == $row[0] && $password == $row[1])
 			if($row[6] == 't') {		
 				echo '<script type="text/javascript">'; 

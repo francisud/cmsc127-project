@@ -14,7 +14,7 @@
    }
    
    if($_GET['album_name'] == null){
-		$sql = " SELECT * FROM album";
+		$sql = " SELECT * FROM album ORDER BY artist";
 		$result = pg_query($db, $sql);
 	   
 	   if(!$result){
@@ -27,6 +27,7 @@
 	   
 	   $sql = " SELECT * FROM album 
 				where album_name like $1
+				ORDER BY artist
 				";
 	   $result = pg_prepare($db, 'get_album', $sql);
 	   $result = pg_execute($db, 'get_album', array('%'.$album_name.'%'));

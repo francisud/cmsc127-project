@@ -48,7 +48,7 @@
 			
 				<div class="form-group">
 					<div class="">
-						<input type="text" class="form-control" placeholder="Artist Real Name" name="real_name">
+						<input type="text" class="form-control" placeholder="Artist Real Name" required="required"  name="real_name">
 					</div>
 				</div>
 				

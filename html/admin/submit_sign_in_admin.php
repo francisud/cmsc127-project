@@ -10,16 +10,19 @@
 
    $db = pg_connect( "$host $port $dbname $credentials");
    
-	$sql = " SELECT * FROM users where username='$username' and password='$password' and is_admin='true' ";
-	$ret = pg_query($db, $sql);
-		
-	if(!$ret){
+	$sql = " SELECT * FROM users where username=$1 and password=$2 and is_admin='true' ";
+	
+	$result = pg_prepare($db, 'admin_sign_in', $sql);
+	$result = pg_execute($db, 'admin_sign_in', array($username, $password));
+
+	
+	if(!$result){
 	  echo pg_last_error($db);
 	  exit;
 	}
 		
 	else{
-		while($row = pg_fetch_row($ret)) {
+		while($row = pg_fetch_row($result)) {
 		if($username == $row[0] && $password == $row[1] && $is_admin == 'true')
 		  echo "Username = ". $row[0] . "\n";
 		  echo "Password = ". $row[1] ."\n";

@@ -70,15 +70,16 @@
 				
 					<div class="form-group">
 						<div class="">
-							<input type="text" class="form-control" placeholder="Online Link" name="online_link">
+							<input type="text" class="form-control" placeholder="Online Link" required="required" name="online_link">
 						</div>
-					</div>
+					</div>	
 					
+					<div>FILE</div>
 					<div class="form-group">
 						<div class="">
-							<input type="text" class="form-control" placeholder="Saved File Link" name="offline_link">
+							<input type="file"  required="required" name="offline_link">
 						</div>
-					</div>				
+					</div>
 				
 					
 					<div class="form-group">

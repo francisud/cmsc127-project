@@ -17,7 +17,7 @@
 	if($_GET['song_title'] == null)
 	{
 		$sql = " SELECT * FROM song
-				ORDER BY song_title
+				ORDER BY artist
 				";
 		$result = pg_query($db, $sql);
 	   
@@ -30,7 +30,7 @@
    else{
 		$sql = " SELECT * FROM song
 					where song_title like $1
-					ORDER BY song_title
+					ORDER BY artist
 					";		
 		
 		$result = pg_prepare($db, 'get_song', $sql);

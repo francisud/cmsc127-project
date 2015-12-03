@@ -16,14 +16,15 @@
 				FROM playlist_song, song
 				WHERE playlist_song.playlist_id = $1
 				and (playlist_song.song_id = song.song_id)
-				ORDER BY song.song_title
+				ORDER BY song.artist
 			";
 
 	$result = pg_prepare($db, 'get_songs', $sql);
 	$result = pg_execute($db, 'get_songs', array($playlistid));
 	
 	
-	$sql2 = "SELECT * from song";	
+	$sql2 = "SELECT * from song
+				ORDER BY artist";	
 	$ret2 = pg_query($db, $sql2);
 	
 	
