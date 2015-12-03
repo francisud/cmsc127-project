@@ -19,7 +19,7 @@
 	} 
 	else 
 	{
-		$sql = " SELECT * FROM song where song_title='$song_title' ";
+		$sql = " SELECT * FROM song where song_title like '%$song_title%' ";
 	}
 		$ret = pg_query($db, $sql);
 		
